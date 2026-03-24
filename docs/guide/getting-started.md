@@ -21,7 +21,8 @@ export default {
 }
 ```
 
-That's it. Your VitePress site now uses the Keycap palette with proper dark and light mode support.
+That's it. Your VitePress site now uses the Keycap palette with proper
+dark and light mode support.
 
 ## Manual Setup (Copy CSS)
 
@@ -43,8 +44,8 @@ Then import in your custom CSS:
 
 | File | What | When to Use |
 |------|------|-------------|
-| `css/keycap-palette.css` | Color tokens + fonts only | Any project (not VitePress-specific) |
-| `css/components.css` | Badges, cards, pipeline | Any HTML project |
+| `css/keycap-palette.css` | Color tokens + fonts | Any project (not VitePress) |
+| `css/components.css` | Badges, cards, pipeline | Any HTML |
 | `css/vitepress-theme.css` | Full VitePress theme | VitePress projects |
-| `tokens/keycap.json` | W3C DTCG format tokens | Build tools (Style Dictionary, etc.) |
-| `dist/tokens.js` | TypeScript token export | JS/TS projects needing programmatic access |
+| `tokens/keycap.json` | W3C DTCG format tokens | Build tools |
+| `dist/tokens.js` | TypeScript token export | JS/TS projects |

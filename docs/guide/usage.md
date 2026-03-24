@@ -20,7 +20,8 @@ The palette exposes `--kc-*` tokens:
 }
 ```
 
-These automatically switch between light and dark values based on the `.dark` class or `prefers-color-scheme`.
+These automatically switch between light and dark values based on the
+`.dark` class or `prefers-color-scheme`.
 
 ## TypeScript Tokens
 
@@ -48,7 +49,8 @@ export default defineConfig({
 
 ## Light vs Dark Accent
 
-The accent teal `#7ebab5` works on dark backgrounds but lacks contrast on light. Use the contrast variant:
+The accent teal `#7ebab5` works on dark backgrounds but lacks contrast
+on light. Use the contrast variant:
 
 | Context | Color | Token |
 |---------|-------|-------|

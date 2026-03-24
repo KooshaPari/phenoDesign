@@ -7,7 +7,8 @@ Grid layout for document type galleries.
 <div class="doc-type-grid">
   <div class="doc-type-card">
     <div class="card-title">Specification</div>
-    <div class="card-desc">Feature specs with requirements, user scenarios, and success criteria.</div>
+    <div class="card-desc">Feature specs with requirements, scenarios,
+      and success criteria.</div>
   </div>
   <div class="doc-type-card">
     <div class="card-title">Architecture Decision</div>

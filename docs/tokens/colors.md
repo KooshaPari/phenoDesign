@@ -11,7 +11,7 @@
 | `--kc-accent-contrast` | `#4a9c97` | Light-mode links (WCAG AA on white) |
 | `--kc-slate` | `#353a40` | Secondary surfaces, alt buttons |
 
-## Dark Mode
+## Dark Mode Palette
 
 | Token | Hex | Contrast vs text-1 |
 |-------|-----|-------------------|
@@ -25,7 +25,7 @@
 | `--kc-divider` | `#1f2329` | — |
 | `--kc-code-bg` | `#060708` | 19.8:1 |
 
-## Light Mode
+## Light Mode Palette
 
 | Token | Hex | Contrast vs text-1 |
 |-------|-----|-------------------|

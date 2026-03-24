@@ -5,7 +5,7 @@
 | Token | Value | Usage |
 |-------|-------|-------|
 | `--kc-font-base` | Inter, system stack | Body text, headings, UI |
-| `--kc-font-mono` | JetBrains Mono, system mono | Code blocks, CLI output, technical references |
+| `--kc-font-mono` | JetBrains Mono | Code blocks, CLI output |
 
 ## Font Loading
 
@@ -15,7 +15,8 @@ The palette CSS imports fonts from Google Fonts:
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 ```
 
-For self-hosting, download the fonts and replace the `@import` with local `@font-face` declarations.
+For self-hosting, download the fonts and replace the `@import` with
+local `@font-face` declarations.
 
 ## Heading Styles
 
@@ -32,4 +33,5 @@ Body text uses `1.75` line height for readability in documentation contexts.
 
 ## Code
 
-Code blocks use `13px` font size with the mono stack. Inline code uses the `--kc-code-bg` background.
+Code blocks use `13px` font size with the mono stack. Inline code
+uses the `--kc-code-bg` background.
