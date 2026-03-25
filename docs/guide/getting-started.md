@@ -42,10 +42,10 @@ Then import in your custom CSS:
 
 ## What's Included
 
-| File | What | When to Use |
-|------|------|-------------|
-| `css/keycap-palette.css` | Color tokens + fonts | Any project (not VitePress) |
+| File | What | Use Case |
+| --- | --- | --- |
+| `css/keycap-palette.css` | Color tokens + fonts | Any project |
 | `css/components.css` | Badges, cards, pipeline | Any HTML |
-| `css/vitepress-theme.css` | Full VitePress theme | VitePress projects |
+| `css/vitepress-theme.css` | Full VitePress theme | VitePress |
 | `tokens/keycap.json` | W3C DTCG format tokens | Build tools |
-| `dist/tokens.js` | TypeScript token export | JS/TS projects |
+| `dist/tokens.js` | TypeScript token export | JS/TS |

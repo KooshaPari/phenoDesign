@@ -3,7 +3,7 @@
 ## Accent Palette
 
 | Token | Hex | Usage |
-|-------|-----|-------|
+| --- | --- | --- |
 | `--kc-accent` | `#7ebab5` | Primary accent (dark mode links, active states) |
 | `--kc-accent-hover` | `#95ccc8` | Hover state |
 | `--kc-accent-active` | `#6aa8a3` | Active/pressed state |
@@ -14,7 +14,7 @@
 ## Dark Mode Palette
 
 | Token | Hex | Contrast vs text-1 |
-|-------|-----|-------------------|
+| --- | --- | --- |
 | `--kc-bg` | `#090a0c` | 19.2:1 |
 | `--kc-bg-alt` | `#0e1014` | 17.8:1 |
 | `--kc-bg-soft` | `#14171b` | 15.6:1 |
@@ -28,7 +28,7 @@
 ## Light Mode Palette
 
 | Token | Hex | Contrast vs text-1 |
-|-------|-----|-------------------|
+| --- | --- | --- |
 | `--kc-bg` | `#f8f9fa` | 16.8:1 |
 | `--kc-bg-alt` | `#f0f1f3` | 15.2:1 |
 | `--kc-bg-soft` | `#e8eaed` | 13.1:1 |
@@ -46,7 +46,7 @@ Used in PhenoDocs 5-layer taxonomy badges.
 ### Dark Mode
 
 | Layer | Background | Foreground |
-|-------|-----------|------------|
+| --- | --- | --- |
 | 0 (Raw) | `rgba(220,38,38,0.15)` | `#f87171` |
 | 1 (Working) | `rgba(234,88,12,0.15)` | `#fb923c` |
 | 2 (Formal) | `rgba(202,138,4,0.15)` | `#fbbf24` |
@@ -56,7 +56,7 @@ Used in PhenoDocs 5-layer taxonomy badges.
 ### Light Mode
 
 | Layer | Background | Foreground |
-|-------|-----------|------------|
+| --- | --- | --- |
 | 0 | `#fde8e8` | `#991b1b` |
 | 1 | `#fff0e0` | `#9a3412` |
 | 2 | `#fef6d8` | `#854d0e` |

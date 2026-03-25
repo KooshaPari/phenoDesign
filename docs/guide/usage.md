@@ -53,7 +53,7 @@ The accent teal `#7ebab5` works on dark backgrounds but lacks contrast
 on light. Use the contrast variant:
 
 | Context | Color | Token |
-|---------|-------|-------|
+| --- | --- | --- |
 | Dark background | `#7ebab5` | `--kc-accent` |
 | Light background | `#4a9c97` | `--kc-accent-contrast` |
 | Hover (dark) | `#95ccc8` | `--kc-accent-hover` |

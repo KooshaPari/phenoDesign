@@ -3,7 +3,7 @@
 ## Font Families
 
 | Token | Value | Usage |
-|-------|-------|-------|
+| --- | --- | --- |
 | `--kc-font-base` | Inter, system stack | Body text, headings, UI |
 | `--kc-font-mono` | JetBrains Mono | Code blocks, CLI output |
 
@@ -21,7 +21,7 @@ local `@font-face` declarations.
 ## Heading Styles
 
 | Level | Weight | Letter Spacing |
-|-------|--------|---------------|
+| --- | --- | --- |
 | h1 | 700 (bold) | -0.03em |
 | h2 | 600 (semibold) | -0.02em |
 | h3 | 600 (semibold) | -0.01em |
