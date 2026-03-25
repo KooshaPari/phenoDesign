@@ -1,6 +1,6 @@
 {
-  "name": "@phenotype/design",
-  "version": "1.0.0",
+  "name": "@kooshapari/design",
+  "version": "1.0.1",
   "description": "Keycap palette — shared design tokens, VitePress theme, and style guide for Phenotype projects",
   "type": "module",
   "main": "dist/index.js",
