@@ -1,7 +1,7 @@
 {
   "name": "@kooshapari/design",
   "version": "1.0.1",
-  "description": "Keycap palette — shared design tokens, VitePress theme, and style guide for Phenotype projects",
+  "description": "Keycap palette \u2014 shared design tokens, VitePress theme, and style guide for Phenotype projects",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -23,19 +23,27 @@
     "dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "lint": "markdownlint docs/**/*.md"
+    "lint": "oxlint",
+    "format": "oxfmt --write ."
   },
   "dependencies": {},
   "devDependencies": {
-    "markdownlint-cli": "^0.48.0",
-    "typescript": "^6.0.2",
-    "vitepress": "^1.5.0",
-    "vue": "^3.5.0"
+    "oxlint": "latest",
+    "typescript": "latest",
+    "vitepress": "latest",
+    "vue": "latest"
   },
-  "keywords": ["phenotype", "design-system", "keycap", "vitepress-theme", "design-tokens"],
+  "keywords": [
+    "phenotype",
+    "design-system",
+    "keycap",
+    "vitepress-theme",
+    "design-tokens"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/KooshaPari/phenotype-design"
-  }
+  },
+  "packageManager": "bun"
 }
