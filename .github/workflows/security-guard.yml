@@ -1,11 +1,7 @@
 name: Security Guard
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
-  push:
-    branches:
-      - "**"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -15,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 

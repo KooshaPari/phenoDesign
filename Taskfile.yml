@@ -1,0 +1,44 @@
+version: '3'
+
+tasks:
+  build:
+    desc: "Build TypeScript to dist/"
+    cmds:
+      - tsc
+      - cp -r css dist/css
+
+  lint:
+    desc: "Run linter with oxlint"
+    cmds:
+      - oxlint
+
+  format:
+    desc: "Format with oxfmt"
+    cmds:
+      - oxfmt --write .
+
+  dev:
+    desc: "Start VitePress dev server"
+    cmds:
+      - bun run dev
+
+  docs:build:
+    desc: "Build VitePress documentation"
+    cmds:
+      - bun run docs:build
+
+  docs:preview:
+    desc: "Preview built documentation"
+    cmds:
+      - bun run docs:preview
+
+  install:
+    desc: "Install dependencies with bun"
+    cmds:
+      - bun install
+
+  quality:
+    desc: "Run quality checks (lint + build)"
+    cmds:
+      - task: lint
+      - task: build
