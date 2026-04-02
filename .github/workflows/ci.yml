@@ -7,11 +7,11 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  verify-archive:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - name: Run tests
+      - uses: actions/checkout@v4
+      - name: Verify archived status
         run: |
-          echo "Running tests for phenotype-design"
-          # Add actual test commands here
+          test -f ARCHIVED.md
+          echo "Repository archived on $(grep 'Archived on' ARCHIVED.md | cut -d' ' -f3)"
