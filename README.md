@@ -1,4 +1,4 @@
-# @phenotype/design
+# @kooshapari/design
 
 > **Archived.** See [ARCHIVED.md](ARCHIVED.md) for migration details.
 
@@ -9,7 +9,7 @@
 ## Install
 
 ```bash
-bun add @phenotype/design
+bun add @kooshapari/design
 ```
 
 ## Quick Start (VitePress)
@@ -17,7 +17,7 @@ bun add @phenotype/design
 ```typescript
 // .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
-import '@phenotype/design/css/vitepress-theme.css'
+import '@kooshapari/design/css/vitepress-theme.css'
 
 export default { extends: DefaultTheme }
 ```
