@@ -19,4 +19,4 @@ tasks:
   clean:
     desc: Remove generated artifacts.
     cmds:
-      - rm -rf dist coverage docs/.vitepress
+      - rm -rf dist coverage docs/.vitepress/dist docs/.vitepress/cache
