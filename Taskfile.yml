@@ -1,44 +1,53 @@
-version: '3'
+version: "3"
 
 tasks:
   build:
-    desc: "Build TypeScript to dist/"
+    desc: Build the package.
     cmds:
-      - tsc
-      - cp -r css dist/css
+      - bun run build
+
+  test:
+    desc: Run the test suite.
+    cmds:
+      - bun run test
 
   lint:
-    desc: "Run linter with oxlint"
+    desc: Run linter with oxlint.
     cmds:
-      - oxlint
+      - bun run lint
 
   format:
-    desc: "Format with oxfmt"
+    desc: Format with oxfmt.
     cmds:
       - oxfmt --write .
 
   dev:
-    desc: "Start VitePress dev server"
+    desc: Start VitePress dev server.
     cmds:
       - bun run dev
 
   docs:build:
-    desc: "Build VitePress documentation"
+    desc: Build VitePress documentation.
     cmds:
       - bun run docs:build
 
   docs:preview:
-    desc: "Preview built documentation"
+    desc: Preview built documentation.
     cmds:
       - bun run docs:preview
 
   install:
-    desc: "Install dependencies with bun"
+    desc: Install dependencies with bun.
     cmds:
       - bun install
 
   quality:
-    desc: "Run quality checks (lint + build)"
+    desc: Run quality checks (lint + build).
     cmds:
       - task: lint
       - task: build
+
+  clean:
+    desc: Remove generated artifacts.
+    cmds:
+      - rm -rf dist coverage docs/.vitepress
