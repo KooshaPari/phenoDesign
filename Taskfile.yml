@@ -19,4 +19,14 @@ tasks:
   clean:
     desc: Remove generated artifacts.
     cmds:
-      - rm -rf dist coverage docs/.vitepress/dist docs/.vitepress/cache
+      - |
+        node --input-type=module <<'EOF'
+        import { rm } from "node:fs/promises";
+
+        await Promise.all([
+          "dist",
+          "coverage",
+          "docs/.vitepress/dist",
+          "docs/.vitepress/cache",
+        ].map((path) => rm(path, { force: true, recursive: true })));
+        EOF
