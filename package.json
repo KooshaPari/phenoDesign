@@ -1,7 +1,7 @@
 {
   "name": "@kooshapari/design",
   "version": "1.0.1",
-  "description": "Keycap palette — shared design tokens, VitePress theme, and style guide for Phenotype projects",
+  "description": "Keycap palette \u2014 shared design tokens, VitePress theme, and style guide for Phenotype projects",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,14 +35,17 @@
   "devDependencies": {
     "@vitest/coverage-v8": "^4.1.2",
     "oxlint": "latest",
-    "typescript": "latest",
+    "typescript": "5.9",
     "vitepress": "latest",
-    "vitest": "^4.1.2",
-    "vue": "latest"
+    "vitest": "1.6",
+    "vue": "latest",
+    "@types/node": "22.0"
   },
   "overrides": {
     "brace-expansion": "5.0.5",
-    "esbuild": "0.27.4"
+    "esbuild": "0.27.4",
+    "postcss": "^8.5.10",
+    "vite": "^6.4.2"
   },
   "keywords": [
     "phenotype",
