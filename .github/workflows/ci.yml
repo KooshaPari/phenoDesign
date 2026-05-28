@@ -2,19 +2,25 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches:
+    - main
   pull_request:
-    branches: [main]
-
+    branches:
+    - main
 permissions:
   contents: read
-
 jobs:
   verify-archive:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5@11bd71901bbe5b1630ceea73d27597364c9af683
-      - name: Verify archived status
-        run: |
-          test -f ARCHIVED.md
-          echo "Repository archived on $(grep 'Archived on' ARCHIVED.md | cut -d' ' -f3)"
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+    - name: Verify archived status
+      run: 'test -f ARCHIVED.md
+
+        echo "Repository archived on $(grep ''Archived on'' ARCHIVED.md | cut -d''
+        '' -f3)"
+
+        '
+    permissions:
+      contents: read
