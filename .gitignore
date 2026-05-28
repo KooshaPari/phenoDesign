@@ -18,3 +18,18 @@ docs/.vitepress/cache/
 .llmignore
 worktrees/
 worktrees/
+
+# ===== Standard auto-generated hygiene ignores (do not edit manually) =====
+.env
+.env.*
+!.env.example
+target/
+build/
+coverage/
+.pytest_cache/
+__pycache__/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+# ===== End standard hygiene ignores =====

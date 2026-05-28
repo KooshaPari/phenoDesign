@@ -2,113 +2,110 @@ name: Security Scan
 
 on:
   push:
-    branches: [main, master]
+    branches:
+    - main
+    - master
   pull_request:
-    branches: [main, master]
+    branches:
+    - main
+    - master
   schedule:
-    - cron: '0 2 * * *'  # Daily at 2 AM UTC
-  workflow_dispatch:
-
+  - cron: 0 2 * * *
+  workflow_dispatch: null
 permissions:
   contents: read
   security-events: write
   actions: read
-
-env:
-  
-
+env: null
 jobs:
-  # Secret Scanning
   secrets:
     name: Secret Detection
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
     steps:
-      - name: Checkout
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5@11bd71901bbe5b1630ceea73d27597364c9af683
-        with:
-          fetch-depth: 0
-
-      - name: Run Gitleaks
-        uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          args: --verbose --redact
-
-  # SAST Scanning
+    - name: Checkout
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      with:
+        fetch-depth: 0
+    - name: Run Gitleaks
+      uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        args: --verbose --redact
+    permissions:
+      secrets: read
+      contents: read
+      actions: read
   sast:
     name: SAST Analysis
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
     permissions:
       security-events: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5@11bd71901bbe5b1630ceea73d27597364c9af683
+    - name: Checkout
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+    - name: Setup Node
+      uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      with:
+        node-version: '20'
+    - name: Install dependencies
+      run: npm ci
+    - name: Run ESLint Security
+      run: npx eslint . --ext .ts,.tsx --config .eslintrc.security.js || true
+    - name: Run Semgrep
+      uses: returntocorp/semgrep-action@713efdd345f3035192eaa63f56867b88e63e4e5d
+      with:
+        config: 'p/typescript
 
-      
-      - name: Setup Node
-        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e@8f152de45cc393bb48ce5d89d36b731f54556e65
-        with:
-          node-version: '20'
+          p/security-audit
 
-      - name: Install dependencies
-        run: npm ci
+          p/secrets
 
-      - name: Run ESLint Security
-        run: npx eslint . --ext .ts,.tsx --config .eslintrc.security.js || true
-
-      - name: Run Semgrep
-        uses: returntocorp/semgrep-action@v1
-        with:
-          config: |
-            p/typescript
-            p/security-audit
-            p/secrets
-          generateSarif: "1"
-      
-
-  # Dependency Vulnerability Scanning
+          '
+        generateSarif: '1'
   dependencies:
     name: Dependency Audit
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
     steps:
-      - name: Checkout
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5@11bd71901bbe5b1630ceea73d27597364c9af683
-
-      
-      - name: Setup Node
-        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e@8f152de45cc393bb48ce5d89d36b731f54556e65
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run npm audit
-        run: npm audit --audit-level=high
-      
-
-  # Container Scanning (if Dockerfile exists)
+    - name: Checkout
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+    - name: Setup Node
+      uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      with:
+        node-version: '20'
+    - name: Install dependencies
+      run: npm ci
+    - name: Run npm audit
+      run: npm audit --audit-level=high
+    permissions:
+      secrets: read
+      contents: read
+      actions: read
   container:
     name: Container Scan
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
     if: ${{ hashFiles('Dockerfile') != '' }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5@11bd71901bbe5b1630ceea73d27597364c9af683
-
-      - name: Build image
-        run: docker build -t ${{ github.event.repository.name }}:scan .
-
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: '${{ github.event.repository.name }}:scan'
-          format: 'sarif'
-          output: 'trivy-results.sarif'
-
-      - name: Upload Trivy results
-        uses: github/codeql-action/upload-sarif@v3
-        if: always()
-        with:
-          sarif_file: 'trivy-results.sarif'
+    - name: Checkout
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+    - name: Build image
+      run: docker build -t ${{ github.event.repository.name }}:scan .
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@314ff8b43182423b84c50b1670b0e10f858f2d98
+      with:
+        image-ref: ${{ github.event.repository.name }}:scan
+        format: sarif
+        output: trivy-results.sarif
+    - name: Upload Trivy results
+      uses: github/codeql-action/upload-sarif@0daab03d71ff584ef619d027a3fd9146679c5d84
+      if: always()
+      with:
+        sarif_file: trivy-results.sarif
+    permissions:
+      secrets: read
+      contents: read
+      actions: read
