@@ -1,0 +1,8 @@
+node_modules/
+dist/
+coverage/
+docs/.vitepress/
+bun.lock
+package-lock.json
+*.min.js
+*.min.css

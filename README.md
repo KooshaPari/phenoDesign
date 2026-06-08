@@ -9,8 +9,28 @@
 ## Install
 
 ```bash
-bun add @kooshapari/design
+bun add @phenotype/design
 ```
+
+## Build / Test
+
+This package is built and tested as a TypeScript library using Node 20+ and `npm` (a `bun.lock` is also published for the bun workflow).
+
+```bash
+# Install dependencies
+npm ci
+
+# Compile TypeScript -> dist/
+npm run build
+
+# Run the test suite (vitest)
+npm test
+
+# Type-checked lint (ESLint + @typescript-eslint)
+npm run lint:eslint
+```
+
+CI runs `npm ci`, `npm run lint`, `npm test`, and `npm run build` on every push and PR against `main` (`.github/workflows/ts-ci.yml`).
 
 ## Quick Start (VitePress)
 

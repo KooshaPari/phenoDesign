@@ -1,2 +1,2 @@
-export { keycap } from './tokens'
-export type { KeycapTokens } from './tokens'
+export { keycap } from './tokens.js'
+export type { KeycapTokens } from './tokens.js'

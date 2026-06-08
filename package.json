@@ -27,14 +27,22 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "lint": "oxlint",
-    "format": "oxfmt --write ."
+    "lint:eslint": "eslint . --ext .ts,.tsx",
+    "format": "oxfmt --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@phenotype/docs": "^0.1.0"
   },
   "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
     "@vitest/coverage-v8": "^4.1.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
     "oxlint": "latest",
+    "prettier": "^3.3.0",
     "typescript": "latest",
     "vitepress": "latest",
     "vitest": "^4.1.2",
