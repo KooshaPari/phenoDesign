@@ -1,6 +1,6 @@
-# @kooshapari/design
+# @phenotype/design
 
-> **Archived.** See [ARCHIVED.md](ARCHIVED.md) for migration details.
+> **Active.** Previously archived; un-archived 2026-06-08. See [ARCHIVED.md](ARCHIVED.md) for history.
 
 ## Status
 

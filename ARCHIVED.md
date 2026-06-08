@@ -1,36 +1,23 @@
-# Archived: MIGRATED to packages/phenotype-design
+# Un-Archived: ACTIVE as of 2026-06-08
 
-## Status
+## Previous Archive Status
 
-This repository has been migrated to [packages/phenotype-design](../packages/phenotype-design/)
+This repository was previously archived on 2026-03-25 with a planned migration to `packages/phenotype-design`. The migration was not completed. This repository is now the canonical source for the `@phenotype/design` package.
 
-## Migration Date
+## Current Status
 
-2026-03-25
+- **Package name**: `@phenotype/design`
+- **Repository**: `kooshapari/phenotype-design`
+- **State**: Active
 
-## What Changed
+## Migration Path (from old archive notice)
 
-| Item | Old | New |
-|------|-----|-----|
-| Package Name | `@kooshapari/design` | `@phenotype/design` |
-| Repository URL | `kooshapari/phenotype-design` | `phenotype/packages` |
-| Location | `phenotype-design/` | `packages/phenotype-design/` |
-
-## Action Required
-
-If you have dependencies on this package, update:
+If you previously had dependencies on `@kooshapari/design`, update:
 
 ```json
 // OLD
 "@kooshapari/design": "file:../phenotype-design"
 
 // NEW
-"@phenotype/design": "file:../packages/phenotype-design"
-```
-
-## Verification
-
-```bash
-cd packages/phenotype-design
-npm run build
+"@phenotype/design": "file:../phenotype-design"
 ```
