@@ -27,6 +27,7 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "lint": "oxlint",
+    "typecheck": "tsc --noEmit",
     "format": "oxfmt --write ."
   },
   "dependencies": {
