@@ -44,6 +44,12 @@ export default { extends: DefaultTheme }
 
 All combinations meet WCAG AA contrast (4.5:1 minimum).
 
+## Related resources
+
+- [Error handling patterns](https://github.com/KooshaPari/PhenoHandbook/blob/main/patterns/error-handling.md)
+- [Logging patterns (Rust)](https://github.com/KooshaPari/PhenoHandbook/blob/main/patterns/logging-rust.md)
+- [Build info patterns](https://github.com/KooshaPari/PhenoHandbook/blob/main/patterns/build-info.md)
+
 ## License
 
 MIT
