@@ -4,12 +4,13 @@
 
 ## Status
 
-- Archived on 2026-03-25
+- Un-archived 2026-06-08 (see [ARCHIVED.md](ARCHIVED.md) for history)
+- Package: `@phenotype/design` v1.0.1
 
 ## Install
 
 ```bash
-bun add @kooshapari/design
+bun add @phenotype/design
 ```
 
 ## Quick Start (VitePress)
@@ -17,7 +18,7 @@ bun add @kooshapari/design
 ```typescript
 // .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
-import '@kooshapari/design/css/vitepress-theme.css'
+import '@phenotype/design/css/vitepress-theme.css'
 
 export default { extends: DefaultTheme }
 ```
