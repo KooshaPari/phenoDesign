@@ -36,6 +36,7 @@
   "devDependencies": {
     "@vitest/coverage-v8": "^4.1.2",
     "oxlint": "latest",
+    "phenotype-ts-utils": "github:KooshaPari/phenotype-ts-utils#v0.1.0",
     "typescript": "latest",
     "vitepress": "latest",
     "vitest": "^4.1.2",
