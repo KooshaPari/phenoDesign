@@ -1,3 +1,6 @@
+# Phenotype-org standard .gitignore — Node
+# Source: https://github.com/KooshaPari/phenotype-tooling/blob/main/templates/gitignore-node
+
 node_modules/
 dist/
 docs/.vitepress/dist/
@@ -33,3 +36,24 @@ __pycache__/
 .venv/
 venv/
 # ===== End standard hygiene ignores =====
+
+# --- adopted from phenotype-tooling/templates/gitignore-node ---
+.cache/
+.eslintcache
+.idea/
+.npm/
+.parcel-cache/
+.pnp
+.pnp.js
+.vscode/
+*.swp
+/build/
+/coverage/
+/dist/
+/out/
+lerna-debug.log*
+npm-debug.log*
+pnpm-debug.log*
+Thumbs.db
+yarn-debug.log*
+yarn-error.log*
