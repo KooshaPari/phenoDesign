@@ -5,10 +5,6 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 on:
   branch_protection_rule:
   schedule:
@@ -17,6 +13,10 @@ on:
     branches:
     - main
 permissions: read-all
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   analysis:
     name: Scorecard analysis

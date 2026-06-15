@@ -1,0 +1,5 @@
+[0m[1mbun install [0m[2mv1.3.11 (af24e281)[0m
+Resolving dependencies
+Resolved, downloaded and extracted [3]
+[31merror[0m[2m: [0m[1m[0m[31m[1mGET[0m[31m https://npm.pkg.github.com/@phenotype%2fdocs[2m - 404[0m[0m
+[0m[31merror[0m[2m:[0m [1m@phenotype/docs[0m[2m@[1m^0.1.0[0m[2m failed to resolve[0m
