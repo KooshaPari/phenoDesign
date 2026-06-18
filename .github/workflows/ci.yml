@@ -7,6 +7,10 @@ on:
   pull_request:
     branches:
     - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   verify-archive:
     runs-on: ubuntu-24.04
@@ -22,8 +26,4 @@ jobs:
         '
 permissions:
   contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
 

@@ -30,3 +30,8 @@ tasks:
           "docs/.vitepress/cache",
         ].map((path) => rm(path, { force: true, recursive: true })));
         EOF
+
+  coverage:
+    desc: Measure code coverage with Vitest.
+    cmds:
+      - bun run test:coverage
