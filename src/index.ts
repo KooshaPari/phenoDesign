@@ -1,2 +1,1 @@
-export { keycap } from './tokens'
-export type { KeycapTokens } from './tokens'
+export * from './tokens'

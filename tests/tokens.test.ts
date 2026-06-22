@@ -7,10 +7,11 @@
  * - All expected token keys are present in the keycap object
  * - Color values are valid hex strings
  * - Accent/background color contrast ratios meet WCAG AA (4.5:1 for normal text)
+ * - OS-adaptive material, polygon, and neumorphism tokens have the expected structure
  */
 
 import { describe, it, expect } from 'vitest'
-import { keycap } from '../src/tokens'
+import { keycap, MATERIALS, POLYGONS, NEUMORPHISM, designTokens } from '../src/tokens'
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -86,6 +87,13 @@ describe('keycap tokens — structure', () => {
     expect(keycap.font).toHaveProperty('mono')
     expect(typeof keycap.font.base).toBe('string')
     expect(typeof keycap.font.mono).toBe('string')
+  })
+
+  it('merges into the top-level design token bundle', () => {
+    expect(designTokens.keycap).toBe(keycap)
+    expect(designTokens.materials).toBe(MATERIALS)
+    expect(designTokens.polygons).toBe(POLYGONS)
+    expect(designTokens.neumorphism).toBe(NEUMORPHISM)
   })
 })
 
@@ -175,5 +183,49 @@ describe('keycap tokens — font stacks', () => {
 
   it('mono font stack has fallback fonts', () => {
     expect(keycap.font.mono.split(',')).toHaveLength(4)
+  })
+})
+
+describe('OS-adaptive material tokens', () => {
+  it('defines the four platform groups', () => {
+    expect(Object.keys(MATERIALS).sort()).toEqual(['android', 'macos', 'web', 'windows'])
+  })
+
+  it('windows material exposes mica, acrylic, and card tokens', () => {
+    expect(MATERIALS.windows.base).toBe('mica')
+    expect(MATERIALS.windows.acrylic).toContain('backdrop-blur(20px)')
+    expect(MATERIALS.windows.card).toContain('border: 1px solid')
+  })
+
+  it('macos material exposes liquid glass tokens', () => {
+    expect(MATERIALS.macos.base).toBe('liquid-glass')
+    expect(MATERIALS.macos.vibrancy).toContain('backdrop-filter: blur(40px)')
+    expect(MATERIALS.macos.chromaShift).toContain('rgba(126,186,181,0.3)')
+  })
+})
+
+describe('stacked polygon tokens', () => {
+  it('defines the expected polygon presets', () => {
+    expect(Object.keys(POLYGONS).sort()).toEqual(['diamond', 'hexagon', 'pentagon', 'triangle'])
+  })
+
+  it('describes layered composite shapes', () => {
+    expect(POLYGONS.hexagon.layers).toHaveLength(3)
+    expect(POLYGONS.pentagon.layers).toHaveLength(4)
+    expect(POLYGONS.triangle.layers.every((layer) => typeof layer.rotation === 'number')).toBe(true)
+  })
+})
+
+describe('neumorphism tokens', () => {
+  it('uses a top-left light source with 4px extrusion', () => {
+    expect(NEUMORPHISM.lightSource).toBe('315deg')
+    expect(NEUMORPHISM.extrudeDepth).toBe('4px')
+  })
+
+  it('pairs shadow and highlight offsets', () => {
+    expect(NEUMORPHISM.shadow).toContain('rgba(0,0,0,0.5)')
+    expect(NEUMORPHISM.shadow).toContain('rgba(126,186,181,0.1)')
+    expect(NEUMORPHISM.shadowOffset).toBe('4px')
+    expect(NEUMORPHISM.highlightOffset).toBe('-4px')
   })
 })
