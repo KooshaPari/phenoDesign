@@ -15,6 +15,11 @@ describe('@phenotype/design — public exports', () => {
     expect(typeof designExports.keycap).toBe('object')
   })
 
+  it('exports the merged design token bundle', () => {
+    expect(designExports).toHaveProperty('designTokens')
+    expect(designExports.designTokens.keycap).toBe(designExports.keycap)
+  })
+
   it('keycap export is the same object as direct import', async () => {
     const { keycap: direct } = await import('../src/tokens')
     expect(designExports.keycap).toBe(direct)
@@ -33,5 +38,11 @@ describe('@phenotype/design — public exports', () => {
     // Type-level assertion: KeycapTokens should be assignable from keycap
     const tokens: import('../src/tokens').KeycapTokens = designExports.keycap
     expect(tokens).toBeDefined()
+  })
+
+  it('exports materials, polygons, and neumorphism tokens', () => {
+    expect(designExports).toHaveProperty('MATERIALS')
+    expect(designExports).toHaveProperty('POLYGONS')
+    expect(designExports).toHaveProperty('NEUMORPHISM')
   })
 })
