@@ -23,6 +23,10 @@ export interface DesignError {
   code: string
   message: string
   cause?: string
+  /** Human-readable hint for recovery */
+  hint?: string
+  /** The step name where the error originated */
+  step?: string
 }
 
 export type Result<TValue, TError> =
@@ -47,7 +51,7 @@ export interface Validator {
 }
 
 export interface Composer {
-  compose(spec: DesignSpec): Promise<LayoutPlan>
+  compose(spec: DesignSpec): Promise<Result<LayoutPlan, DesignError>>
 }
 
 export interface RenderInput {
@@ -57,5 +61,5 @@ export interface RenderInput {
 }
 
 export interface Renderer {
-  render(input: RenderInput): Promise<GeneratedDesign>
+  render(input: RenderInput): Promise<Result<GeneratedDesign, DesignError>>
 }
