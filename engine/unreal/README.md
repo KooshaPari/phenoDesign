@@ -1,6 +1,6 @@
-# Unreal Engine 5.7 Cinematics Leg (STUB)
+# Unreal Engine 5.7 Cinematics Leg (Real Project + Scripted Pipeline)
 
-Stub documentation for headless Unreal Engine 5.7 ray-traced cinematics rendering. This leg is **not yet implemented** but is documented here for future integration.
+Headless Unreal Engine 5.7 ray-traced cinematics rendering pipeline with MovieRenderQueue. Project scaffolding + render scripts are **functional**; rendering unverified without full project compilation.
 
 ## Purpose
 
@@ -10,16 +10,17 @@ Render cinematic-quality 3D assets and sequences:
 - **Real-time ray-tracing** (DXR + DLSS upscaling on NVIDIA RTX)
 - **MovieRenderQueue pipeline** (batch export with complex post-FX stacks)
 
-## Status: STUB + TODO
+## Status: Scripted (Unverified Render)
 
 | Component | Status | Notes |
 |-----------|--------|-------|
 | UE 5.7 engine | ✅ Installed | C:/Program Files/Epic Games/UE_5.7 |
-| Headless CLI | 🔲 TODO | Need UnrealEditor-Cmd.exe config |
-| MovieRenderQueue | 🔲 TODO | Project + render config files |
-| Ray-tracing (DXR) | 🔲 TODO | GPU settings, material setup |
-| DLSS upscaler | 🔲 TODO | NVIDIA plugin integration |
-| Batch driver | 🔲 TODO | Python dispatcher + manifest |
+| Headless CLI | ✅ Scripted | render_cinematic.ps1 / render_cinematic.sh |
+| MovieRenderQueue | ✅ Scripted | RenderConfigs/default.json + args |
+| Project scaffold | ✅ Created | E:/Dev/phenoDesign-UE5 (minimal C++ module) |
+| Ray-tracing (DXR) | 🔲 TODO | GPU settings, material setup, content import |
+| DLSS upscaler | 🔲 TODO | NVIDIA plugin integration + materials |
+| Batch dispatcher | 🔲 TODO | Manifest + orchestrator integration |
 
 ## Prerequisites
 
@@ -37,38 +38,77 @@ Render cinematic-quality 3D assets and sequences:
 - **Visual Studio 2022** (C++ toolchain)
 - **NVIDIA GPU drivers** (for ray-tracing)
 
-### Project Setup (TODO)
+### Project Setup (Scaffolded)
 
-The phenoDesign UE5.7 project does not yet exist. Future work:
-1. Create blank project (C:/Users/koosh/Dev/phenoDesign-UE5 or similar)
+The phenoDesign UE5.7 project exists at **E:/Dev/phenoDesign-UE5**. Includes:
+- **phenoDesign.uproject** (UE 5.7 manifest with MovieRenderPipeline enabled)
+- **Source/phenoDesign/** (minimal C++ module)
+- **Content/** (ready for asset import)
+- **RenderConfigs/default.json** (render settings template)
+
+Remaining work:
+1. Compile Source/ (generate Visual Studio project files)
 2. Import blueprint libraries for:
    - Glass morphism materials (teal emission, transmission)
    - Procedural geometry (rounded tiles, node graphs, tubes)
    - Lighting setup (midnight world, volumetric glow, DXR)
-3. Configure MovieRenderQueue settings (output paths, codecs, post-FX)
-4. Build render batch configs for each asset type
+3. Populate Content/ with sequences and environments
+4. Test end-to-end render
 
-## Headless Render Command (Reference)
+## Render Scripts (Implemented)
 
-Once project is set up, rendering will use:
+### PowerShell Wrapper Script
 
-```bash
-UnrealEditor-Cmd.exe \
-  "C:/Users/koosh/Dev/phenoDesign-UE5/phenoDesign.uproject" \
-  -ExecuteConsoleCommand="MovieRender.RenderAll" \
-  -MovieRenderConfig="Renders/BatchRender_Icons.json" \
-  -NoEditor \
-  -Unattended
+**Location:** `render_cinematic.ps1` (in this directory)
+
+Invokes UnrealEditor-Cmd.exe with MovieRenderQueue options. Supports custom resolution, codec, quality, and output paths.
+
+**Usage:**
+```powershell
+.\render_cinematic.ps1 `
+  -ProjectPath "E:/Dev/phenoDesign-UE5/phenoDesign.uproject" `
+  -OutputDir "E:/renders/hero_01" `
+  -ResX 1920 -ResY 1080 `
+  -Codec h264 -Quality 95
 ```
 
-Alternative using Render Automation Plugin (UE 5.3+):
+**Key Parameters:**
+- `-ProjectPath` (required): Path to .uproject file
+- `-OutputDir`: Output directory (default: `<project>/Renders`)
+- `-ResX`, `-ResY`: Resolution (default: 1920x1080)
+- `-Codec`: h264, h265, prores (default: h264)
+- `-Quality`: 0-100 encoding quality (default: 95)
+- `-FrameRate`: Frame rate numerator (default: 24)
 
+### Bash Wrapper Script
+
+**Location:** `render_cinematic.sh` (in this directory)
+
+Cross-platform wrapper that delegates to `render_cinematic.ps1` on Windows.
+
+**Usage:**
 ```bash
-UnrealEditor-Cmd.exe \
-  "path/to/project.uproject" \
-  -ExecuteConsoleCommand="RenderMovie /Game/Sequences/CinematicSequence /output/hero.mp4" \
-  -Unattended \
-  -NullRHI  # Headless (no display, no GPU = slow; use -ShaderCompileWorkers for GPU)
+./render_cinematic.sh -p E:/Dev/phenoDesign-UE5/phenoDesign.uproject -o E:/renders/hero_01
+```
+
+### Direct Invocation Pattern
+
+For scripting or debugging, invoke UnrealEditor-Cmd.exe directly:
+
+```powershell
+$UE_BIN = "C:\Program Files\Epic Games\UE_5.7\Engine\Binaries\Win64\UnrealEditor-Cmd.exe"
+
+& $UE_BIN `
+  "E:/Dev/phenoDesign-UE5/phenoDesign.uproject" `
+  -Unattended `
+  -NoGUI `
+  -NullRHI `
+  -ResX=1920 -ResY=1080 `
+  -MovieFolder="E:/renders" `
+  -MovieFrameRate=24 `
+  -MovieCodec=h264 `
+  -MovieQuality=95 `
+  -Log="E:/renders/render.log"
 ```
 
 ## Material Setup (Future)
@@ -140,13 +180,22 @@ Optimization strategies:
 - Pre-warm GPU before batch rendering
 - Consider progressive rendering (low-bounce → high-bounce)
 
+## Project Locations
+
+- **Engine install:** C:/Program Files/Epic Games/UE_5.7
+- **Project root:** E:/Dev/phenoDesign-UE5
+- **Render scripts:** E:/Dev/phenoDesign/engine/unreal/ (this directory)
+- **Render configs:** E:/Dev/phenoDesign-UE5/RenderConfigs/
+- **Output (default):** E:/Dev/phenoDesign-UE5/Renders/
+
 ## Next Steps
 
-- [ ] Create UE5 project at C:/Users/koosh/Dev/phenoDesign-UE5
+- [ ] Generate Visual Studio project files (right-click .uproject → Generate Visual Studio project files)
+- [ ] Compile C++ module (Visual Studio → Build → Build Solution)
 - [ ] Import/create glass morphism material library
-- [ ] Set up MovieRenderQueue + batch export configs
-- [ ] Test headless render via CLI
-- [ ] Integrate with orchestrator dispatcher
+- [ ] Create test level + movie sequence in Content/
+- [ ] Test headless render via `render_cinematic.ps1`
+- [ ] Integrate with orchestrator dispatcher (batch manifest)
 - [ ] Benchmark ray-trace + DLSS on RTX 3090 Ti
 
 ## Gotchas & Troubleshooting
