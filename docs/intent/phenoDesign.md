@@ -5,29 +5,62 @@ source-commit: a1aa44660
 do-not-edit-locally: regenerate via scripts/propagate-intent-to-repos.py
                      or update in the source-of-truth registry repo
 -->
-# PhenoDesign -- Intent
+---
+repo: "phenoDesign"
+aliases: []
+role: unknown
+status: active
+archived: false
+last_verified: 2026-06-20
+bound_prompts: 7
+bound_plans: 0
+bound_responses: 0
+device: macbook
+---
+
+# Intent — phenoDesign
 
 ## Intent Statement
 
-PhenoDesign is the design-token and component-pattern library for the Phenotype ecosystem. It defines a single source-of-truth for colors, typography, spacing, motion, and accessibility primitives consumed by every frontend repo (phenoAI, phenoData, phenotype-landing). Output: a published `@phenotype/design` package plus a Figma library.
+<To be filled in by hand from the most recent binding prompt. This repo is bound to 7 prompts, 0 plans, and 0 agent responses captured between 2025-08 and 2026-06-17.>
 
-## Role
 
-`design-system` (per `phenotype-registry/ECOSYSTEM_MAP.md` section 6)
+## Bound Prompts
+
+| Date | Source | File | Tag |
+| ---- | ------ | ---- | --- |
+| ? | claude-code | `docs/curated-prompts/claude-code/unknown/0404f4dd37f86c0c.md` | policy-setting |
+| ? | claude-code | `docs/curated-prompts/claude-code/unknown/0eb0a32920cb216f.md` | policy-setting |
+| ? | claude-code | `docs/curated-prompts/claude-code/unknown/333b26200c715186.md` | policy-setting |
+| ? | claude-code | `docs/curated-prompts/claude-code/unknown/40353c08a20db1d6.md` | policy-setting |
+| ? | claude-code | `docs/curated-prompts/claude-code/unknown/7226fac5baff7f96.md` | narrative |
+| ? | claude-code | `docs/curated-prompts/claude-code/unknown/e312f9aa2e1052a1.md` | policy-setting |
+| ? | claude-code | `docs/curated-prompts/claude-code/unknown/ea68acbd315c07b7.md` | bugfix |
+
+## Bound Plans
+
+| Date | Source | File | Status |
+| ---- | ------ | ---- | ------ |
+
+## Bound Responses (specs, ideas, plans from agents)
+
+| Date | Source | File | Kind |
+| ---- | ------ | ---- | ---- |
 
 ## Boundary
 
-See [`../boundary/PhenoDesign.md`](../boundary/PhenoDesign.md) for the in-scope / out-of-scope
-declaration.
+See: [`docs/boundary/phenoDesign.md`](../boundary/phenoDesign.md)
 
-## Curated prompts
+## Ecosystem Role
 
-See `_bindings.json` key `PhenoDesign` for the bound prompt-hash list
-(per-source counts in `docs/registries.md` section 'Capability & Intent SSOT').
+<See `ECOSYSTEM_MAP.md` for the canonical ecosystem role.>
 
-## Provenance
+## Open Questions
 
-- Source-of-truth role: `phenotype-registry/ECOSYSTEM_MAP.md` section 6 role table
-- Stub rendered: 2026-06-18 by `scripts/render-stubs.py`
-- Prose filled: 2026-06-19 by `scripts/fill-intent-stubs.py`
-- Refresh cadence: weekly per ADR-024
+- <To be filled from the latest prompt on this repo.>
+
+## Change Log
+
+| Date | Change | Worklog |
+| ---- | ------ | ------- |
+| 2026-06-17 | Initial binding (L7-001 sweep) | `worklogs/L7-001-intent-boundary-curation-2026-06-17.json` |
