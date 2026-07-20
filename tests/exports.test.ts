@@ -45,4 +45,17 @@ describe('@phenotype/design — public exports', () => {
     expect(designExports).toHaveProperty('POLYGONS')
     expect(designExports).toHaveProperty('NEUMORPHISM')
   })
+
+  it('exports glass and typography tokens absorbed from phenotype-tooling', () => {
+    expect(designExports).toHaveProperty('glass')
+    expect(designExports).toHaveProperty('typography')
+    expect(designExports.glass.neo.blur).toBe(16)
+    expect(designExports.typography.fontMono).toContain('JetBrains Mono')
+  })
+
+  it('exports vitepress config helpers', () => {
+    expect(designExports).toHaveProperty('vitepressConfig')
+    expect(designExports).toHaveProperty('vitepressMarkdownTheme')
+    expect(designExports.vitepressConfig.appearance).toBe('dark')
+  })
 })

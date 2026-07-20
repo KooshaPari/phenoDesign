@@ -46,6 +46,8 @@ Then import in your custom CSS:
 |------|------|-------------|
 | `css/keycap-palette.css` | Color tokens + fonts | Any project (not VitePress) |
 | `css/components.css` | Badges, cards, pipeline | Any HTML |
+| `css/components.css` | Cards, badges, buttons, code blocks |
+| `css/glass.css` | Per-OS glassmorphism recipes (neo, liquid, mica) |
 | `css/vitepress-theme.css` | Full VitePress theme | VitePress projects |
 | `tokens/keycap.json` | W3C DTCG format tokens | Build tools |
 | `dist/tokens.js` | TypeScript token export | JS/TS projects |
