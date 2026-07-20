@@ -1,5 +1,7 @@
 # phenoDesign Engine
 
+> **Canonical home moved:** development continues in [`KooshaPari/asset-engine`](https://github.com/KooshaPari/asset-engine). This tree remains as a compatibility pointer until consumers repoint (2026-07-20 extraction).
+
 Multi-tool asset creation engine for agent-driven design automation. Produces branded UI graphics, icons, heroes, 3D renders, and cinematics at scale using Blender, ImageMagick, FFmpeg, Adobe Creative Suite, and Unreal Engine 5.7.
 
 ## Purpose & Architecture

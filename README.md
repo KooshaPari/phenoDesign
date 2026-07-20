@@ -19,13 +19,22 @@
 > human operator. Bug reports and contributions are still welcome, but please
 > expect AI-generated code, comments, and documentation throughout.
 <!-- AI-DD-META:END -->
-# @kooshapari/design
+# @phenotype/design — PhenoDesign Creativity Spine
 
-> **Active.** Previously archived; un-archived 2026-06-08. See [ARCHIVED.md](ARCHIVED.md) for history.
+> **LIVE spine** for creativity, art, design, and UX (2026-07-20). See [ARCHIVED.md](ARCHIVED.md) for history and [docs/SPINE.md](docs/SPINE.md) for registry role.
+
+## Spine ownership
+
+| Boundary | Owner |
+|----------|-------|
+| Design tokens, UX, art direction | **this repo** (`phenoDesign`) |
+| Asset pipeline (Blender/FFmpeg/etc.) | [`KooshaPari/asset-engine`](https://github.com/KooshaPari/asset-engine) |
 
 ## Status
 
-- Archived on 2026-03-25
+- **Spine role**: `CREATIVITY_DESIGN_UX` (see `phenotype-registry/docs/spine/SPINE-DEFINITION.md`)
+- **Package**: `@phenotype/design`
+- **GitHub**: unarchived 2026-07-20
 
 ## Install
 
