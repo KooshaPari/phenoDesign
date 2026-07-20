@@ -39,7 +39,7 @@
 ## Install
 
 ```bash
-bun add @kooshapari/design
+bun add @phenotype/design@github:KooshaPari/phenoDesign
 ```
 
 ## Quick Start (VitePress)
@@ -47,7 +47,7 @@ bun add @kooshapari/design
 ```typescript
 // .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
-import '@kooshapari/design/css/vitepress-theme.css'
+import '@phenotype/design/css/vitepress-theme.css'
 
 export default { extends: DefaultTheme }
 ```
@@ -59,7 +59,10 @@ export default { extends: DefaultTheme }
 | `css/keycap-palette.css` | Color tokens + fonts (framework-agnostic) |
 | `css/components.css` | Badges, cards, pipeline (framework-agnostic) |
 | `css/vitepress-theme.css` | Full VitePress theme (imports both above) |
+| `css/glass.css` | Per-OS glassmorphism utilities |
 | `tokens/keycap.json` | W3C DTCG format design tokens |
+| `packages/design-tokens` | `@phenotype/design-tokens` — landing Tailwind/CSS |
+| `packages/ui` | `@phenotype/landing-ui` — shared Astro landing components |
 | `dist/tokens.js` | TypeScript token constants |
 | `dist/vitepress.js` | VitePress config helper |
 

@@ -1,0 +1,22 @@
+{
+  "name": "@phenotype/landing-ui",
+  "version": "0.2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Shared Astro components for Phenotype landing pages",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "astro": "^6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KooshaPari/phenoDesign",
+    "directory": "packages/ui"
+  },
+  "license": "MIT"
+}

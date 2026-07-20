@@ -1,0 +1,19 @@
+{
+  "name": "@phenotype/design-tokens",
+  "version": "0.2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Landing-page design tokens (Tailwind + CSS) for Phenotype sites",
+  "type": "module",
+  "exports": {
+    "./tailwind": "./tailwind.config.mjs",
+    "./css": "./tokens.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KooshaPari/phenoDesign",
+    "directory": "packages/design-tokens"
+  },
+  "license": "MIT"
+}
