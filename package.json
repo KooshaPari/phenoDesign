@@ -1,6 +1,9 @@
 {
   "name": "@phenotype/design",
   "version": "2.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
   "description": "Keycap palette — shared design tokens, VitePress theme, glass recipes, and style guide for Phenotype projects",
   "type": "module",
   "license": "MIT",
