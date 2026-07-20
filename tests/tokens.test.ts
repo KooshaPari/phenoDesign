@@ -11,7 +11,7 @@
  */
 
 import { describe, it, expect } from 'vitest'
-import { keycap, MATERIALS, POLYGONS, NEUMORPHISM, designTokens } from '../src/tokens'
+import { keycap, glass, typography, MATERIALS, POLYGONS, NEUMORPHISM, designTokens } from '../src/tokens'
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -94,6 +94,8 @@ describe('keycap tokens — structure', () => {
     expect(designTokens.materials).toBe(MATERIALS)
     expect(designTokens.polygons).toBe(POLYGONS)
     expect(designTokens.neumorphism).toBe(NEUMORPHISM)
+    expect(designTokens.glass.neo.blur).toBe(16)
+    expect(designTokens.typography.fontMono).toContain('JetBrains Mono')
   })
 })
 
