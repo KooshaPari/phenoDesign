@@ -7,4 +7,4 @@
 
 The root `@phenotype/design` package (keycap palette, VitePress theme) lives at the repo root.
 
-Consumers should depend on these packages from `github:KooshaPari/phenoDesign` or npm after release.
+Consumers should depend on `@phenotype/design` from npm (`bun add @phenotype/design`) or, until the first publish lands, `github:KooshaPari/phenoDesign`. See `docs/guides/npm-release.md`.
