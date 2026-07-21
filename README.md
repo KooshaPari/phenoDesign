@@ -39,7 +39,7 @@
 ## Install
 
 ```bash
-bun add @kooshapari/design
+bun add @phenotype/design
 ```
 
 ## Quick Start (VitePress)
@@ -47,7 +47,7 @@ bun add @kooshapari/design
 ```typescript
 // .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
-import '@kooshapari/design/css/vitepress-theme.css'
+import '@phenotype/design/css/vitepress-theme.css'
 
 export default { extends: DefaultTheme }
 ```
