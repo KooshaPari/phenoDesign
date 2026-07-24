@@ -9,7 +9,7 @@
 import { describe, it, expect } from 'vitest'
 import * as designExports from '../src/index'
 
-describe('@phenotype/design — public exports', () => {
+describe('@kooshapari/design — public exports', () => {
   it('exports keycap token object', () => {
     expect(designExports).toHaveProperty('keycap')
     expect(typeof designExports.keycap).toBe('object')

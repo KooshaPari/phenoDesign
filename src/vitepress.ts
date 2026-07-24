@@ -7,8 +7,8 @@
  * Usage in your .vitepress/theme/index.ts:
  *
  *   import DefaultTheme from 'vitepress/theme'
- *   import '@phenotype/design/css/keycap-palette.css'
- *   // or: import '@phenotype/design/css/vitepress-theme.css'
+ *   import '@kooshapari/design/css/keycap-palette.css'
+ *   // or: import '@kooshapari/design/css/vitepress-theme.css'
  *   export default { extends: DefaultTheme }
  */
 

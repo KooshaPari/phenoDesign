@@ -1,5 +1,5 @@
 {
-  "name": "@phenotype/design",
+  "name": "@kooshapari/design",
   "version": "2.0.0",
   "description": "Keycap palette — shared design tokens, VitePress theme, and style guide for Phenotype projects",
   "type": "module",
@@ -30,13 +30,10 @@
     "typecheck": "tsc --noEmit",
     "format": "oxfmt --write ."
   },
-  "dependencies": {
-    "@phenotype/docs": "^0.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@vitest/coverage-v8": "^4.1.2",
     "oxlint": "latest",
-    "phenotype-ts-utils": "github:KooshaPari/phenotype-ts-utils#v0.1.0",
     "typescript": "latest",
     "vitepress": "latest",
     "vitest": "^4.1.2",

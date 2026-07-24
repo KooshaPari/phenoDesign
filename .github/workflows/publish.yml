@@ -1,0 +1,21 @@
+name: Publish to npm
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v4
+      - uses: oven-sh/setup-bun@f4d14e03ff726c06f0d9c4ba9bc440e2fbf3971d # v1
+      - run: bun install --frozen-lockfile
+      - run: bun run build
+      - run: bun run test
+      - name: Publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

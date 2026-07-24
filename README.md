@@ -19,7 +19,7 @@
 > human operator. Bug reports and contributions are still welcome, but please
 > expect AI-generated code, comments, and documentation throughout.
 <!-- AI-DD-META:END -->
-# @phenotype/design
+# @kooshapari/design
 
 > **Active.** Previously archived; un-archived 2026-06-08. See [ARCHIVED.md](ARCHIVED.md) for history.
 
